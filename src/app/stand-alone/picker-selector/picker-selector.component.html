@@ -1,1 +1,25 @@
-<p>picker-selector works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <section class="col-6 border border-2 border-dark">
+            <div class="container">
+                <input #searchInput type="text" class="d-block w-100" placeholder="Buscar"
+                    (keyup)="filtrarItems(searchInput.value)">
+                <div id="selected-items">
+                    <button (click)="removeSelected(item, i)" [ngStyle]="{'visibility': item.hidden ? 'hidden' : 'visible'}"
+                        class="btn btn-outline-success rounded rounded-pill p-1 m-1"
+                        *ngFor="let item of selectedOpt; index as i">
+                        <span>{{item[nameOption]}}➖</span>
+                    </button>
+                </div>
+                <hr>
+                <div id="all-items">
+                    <button (click)="addSelected(item, i)" [ngStyle]="{'visibility': item.hidden ? 'hidden' : 'visible'}"
+                        class="btn btn-outline-secondary rounded rounded-pill p-1 m-1"
+                        *ngFor="let item of allOpt; index as i">
+                        <span>{{item[nameOption]}}➕</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
